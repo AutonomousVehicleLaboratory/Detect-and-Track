@@ -52,6 +52,8 @@ class Detector(BaseDetector):
         if self.cuda:
             im_dim_list = im_dim_list.cuda()
             batch = im_batch.cuda()
+        else:
+            batch = im_batch
 
         with torch.no_grad():
             prediction = self.model(Variable(batch), self.cuda)
